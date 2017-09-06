@@ -1,0 +1,6 @@
+framework module RxWebClient {
+  umbrella header "RxWebClient-umbrella.h"
+
+  export *
+  module * { export * }
+}
