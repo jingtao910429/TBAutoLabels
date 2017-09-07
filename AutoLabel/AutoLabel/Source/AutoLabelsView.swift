@@ -102,6 +102,22 @@ class AutoLabelsView: UIView {
         setInterface()
     }
     
+    public func reset() {
+        
+        Handler.handlerType = HandlerType.seperate
+        Handler.spaceX = CGFloat(10)
+        Handler.spaceY = CGFloat(10)
+        Handler.labelMargin = CGFloat(20)
+        Handler.preSetTotalWidth = kScreenWidth
+        Handler.height = CGFloat(20)
+        Handler.totalWidth = Handler.preSetTotalWidth - 2 * Handler.labelMargin
+        
+        Handler.font = UIFont.systemFont(ofSize: 13)
+        Handler.textColor = UIColor(hexString: "#C7C7C7")
+        Handler.backGroundColor = UIColor.white
+        Handler.borderColor = UIColor(hexString: "#C7C7C7")?.cgColor
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
