@@ -182,24 +182,24 @@ extension AutoLabelsView {
                 let content = sources[i]
                 let contentWidth = content.widthWith(Handler.font, height: CGFloat(Handler.height)) + 5
                 
-                var contentLabel: UILabel?
+                var contentButton: UIButton?
                 
-                if let label = self.viewWithTag(i + 1) as? UILabel {
-                    contentLabel = label
-                    contentLabel?.frame = CGRect(x: insertX, y: startY, width: contentWidth, height: Handler.height)
+                if let button = self.viewWithTag(i + 1) as? UIButton {
+                    contentButton = button
+                    contentButton?.frame = CGRect(x: insertX, y: startY, width: contentWidth, height: Handler.height)
                 } else {
-                    contentLabel = UILabel(frame: CGRect(x: insertX, y: startY, width: contentWidth, height: Handler.height))
-                    self.addSubview(contentLabel!)
+                    contentButton = UIButton(frame: CGRect(x: insertX, y: startY, width: contentWidth, height: Handler.height))
+                    self.addSubview(contentButton!)
                 }
                 
-                contentLabel?.tag = i + 1
-                contentLabel?.text = content
-                contentLabel?.font = Handler.font
-                contentLabel?.textAlignment = .center
-                contentLabel?.layer.borderWidth = 0.5
-                contentLabel?.backgroundColor = Handler.backGroundColor
-                contentLabel?.layer.borderColor = Handler.borderColor
-                contentLabel?.textColor = Handler.textColor
+                contentButton?.tag = i + 1
+                contentButton?.setTitle(content, for: .normal)
+                contentButton?.titleLabel?.font = Handler.font
+                contentButton?.setTitleColor(Handler.textColor, for: .normal)
+                contentButton?.titleLabel?.textAlignment = .center
+                contentButton?.layer.borderWidth = 0.5
+                contentButton?.backgroundColor = Handler.backGroundColor
+                contentButton?.layer.borderColor = Handler.borderColor
                 insertX += contentWidth
                 insertX += Handler.spaceX
             }
