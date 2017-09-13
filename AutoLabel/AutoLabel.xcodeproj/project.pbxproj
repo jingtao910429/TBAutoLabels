@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0420E5EA1F690BFC007DC10C /* UIImage+BHBEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 0420E5E91F690BFC007DC10C /* UIImage+BHBEffects.m */; };
+		0420E5ED1F690CAA007DC10C /* LayerImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0420E5EC1F690CAA007DC10C /* LayerImage.m */; };
 		046BCD581F602FA700EEB7A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046BCD571F602FA700EEB7A7 /* AppDelegate.swift */; };
 		046BCD5A1F602FA700EEB7A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046BCD591F602FA700EEB7A7 /* ViewController.swift */; };
 		046BCD5D1F602FA700EEB7A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 046BCD5B1F602FA700EEB7A7 /* Main.storyboard */; };
@@ -22,6 +24,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0420E5E71F690BFB007DC10C /* AutoLabel-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AutoLabel-Bridging-Header.h"; sourceTree = "<group>"; };
+		0420E5E81F690BFC007DC10C /* UIImage+BHBEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BHBEffects.h"; sourceTree = "<group>"; };
+		0420E5E91F690BFC007DC10C /* UIImage+BHBEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BHBEffects.m"; sourceTree = "<group>"; };
+		0420E5EB1F690CAA007DC10C /* LayerImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayerImage.h; sourceTree = "<group>"; };
+		0420E5EC1F690CAA007DC10C /* LayerImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayerImage.m; sourceTree = "<group>"; };
 		046BCD541F602FA700EEB7A7 /* AutoLabel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoLabel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		046BCD571F602FA700EEB7A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		046BCD591F602FA700EEB7A7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +80,8 @@
 		046BCD561F602FA700EEB7A7 /* AutoLabel */ = {
 			isa = PBXGroup;
 			children = (
+				0420E5E81F690BFC007DC10C /* UIImage+BHBEffects.h */,
+				0420E5E91F690BFC007DC10C /* UIImage+BHBEffects.m */,
 				046BCD691F602FDC00EEB7A7 /* Source */,
 				046BCD571F602FA700EEB7A7 /* AppDelegate.swift */,
 				046BCD591F602FA700EEB7A7 /* ViewController.swift */,
@@ -80,6 +89,9 @@
 				046BCD5E1F602FA700EEB7A7 /* Assets.xcassets */,
 				046BCD601F602FA700EEB7A7 /* LaunchScreen.storyboard */,
 				046BCD631F602FA700EEB7A7 /* Info.plist */,
+				0420E5E71F690BFB007DC10C /* AutoLabel-Bridging-Header.h */,
+				0420E5EB1F690CAA007DC10C /* LayerImage.h */,
+				0420E5EC1F690CAA007DC10C /* LayerImage.m */,
 			);
 			path = AutoLabel;
 			sourceTree = "<group>";
@@ -150,6 +162,7 @@
 					046BCD531F602FA700EEB7A7 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = E2MHYTRHEB;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -267,7 +280,9 @@
 				046BCD5A1F602FA700EEB7A7 /* ViewController.swift in Sources */,
 				046BCD711F602FED00EEB7A7 /* AutoLabelsView.swift in Sources */,
 				046BCD6E1F602FED00EEB7A7 /* AutoLabelItemCollectionViewCell.swift in Sources */,
+				0420E5EA1F690BFC007DC10C /* UIImage+BHBEffects.m in Sources */,
 				046BCD701F602FED00EEB7A7 /* AutoLabelItemView.swift in Sources */,
+				0420E5ED1F690CAA007DC10C /* LayerImage.m in Sources */,
 				046BCD581F602FA700EEB7A7 /* AppDelegate.swift in Sources */,
 				046BCD751F60340100EEB7A7 /* NSObject+Extension.swift in Sources */,
 			);
@@ -393,11 +408,14 @@
 			baseConfigurationReference = 7032066EC8EDE0420B679CE2 /* Pods-AutoLabel.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = E2MHYTRHEB;
 				INFOPLIST_FILE = AutoLabel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.LiYou.AutoLabel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AutoLabel/AutoLabel-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -407,11 +425,13 @@
 			baseConfigurationReference = AAD6D664DDE10AAD23062F92 /* Pods-AutoLabel.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = E2MHYTRHEB;
 				INFOPLIST_FILE = AutoLabel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.LiYou.AutoLabel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AutoLabel/AutoLabel-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

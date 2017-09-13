@@ -31,6 +31,8 @@ private struct Handler {
     static var height = CGFloat(20)
     //view宽度
     static var totalWidth = preSetTotalWidth - 2 * Handler.labelMargin
+    //需要特别定制item宽度
+    static var innerMargin = CGFloat(2.5)
     
     static func setBase(_ baseSet: (
         spaceX: CGFloat,
@@ -38,6 +40,7 @@ private struct Handler {
         margin: CGFloat,
         width: CGFloat,
         height: CGFloat,
+        innerMargin: CGFloat,
         type: HandlerType)) {
         
         Handler.spaceX = baseSet.spaceX
@@ -45,6 +48,7 @@ private struct Handler {
         Handler.labelMargin = baseSet.margin
         Handler.preSetTotalWidth = baseSet.width
         Handler.height = baseSet.height
+        Handler.innerMargin = baseSet.innerMargin
         Handler.handlerType = baseSet.type
         
     }
@@ -90,7 +94,7 @@ class AutoLabelsView: UIView {
     
     //自定义视图
     public func reloadData(_ sources: [String],
-                           baseSet: (spaceX: CGFloat, spaceY: CGFloat, margin: CGFloat, width: CGFloat, height: CGFloat, type: HandlerType),
+                           baseSet: (spaceX: CGFloat, spaceY: CGFloat, margin: CGFloat, width: CGFloat, height: CGFloat, innerMargin: CGFloat, type: HandlerType),
                            interfaceSet: (font: UIFont, textColor: UIColor, backGroundColor: UIColor, borderColor: UIColor)) {
         Handler.setBase(baseSet)
         Handler.setInterface(interfaceSet)
@@ -137,7 +141,7 @@ extension AutoLabelsView {
             var index = 0 //记录当前索引
             var foreIndex = 0 //记录前索引
             for text in sources {
-                let textWidth = text.widthWith(Handler.font, height: CGFloat(Handler.height)) + 5
+                let textWidth = text.widthWith(Handler.font, height: CGFloat(Handler.height)) + 2 * Handler.innerMargin
                 startX += textWidth
                 if index != sources.count - 1 {
                     startX += Handler.spaceX
@@ -180,7 +184,7 @@ extension AutoLabelsView {
             for i in foreIndex..<index {
                 
                 let content = sources[i]
-                let contentWidth = content.widthWith(Handler.font, height: CGFloat(Handler.height)) + 5
+                let contentWidth = content.widthWith(Handler.font, height: CGFloat(Handler.height)) + 2 * Handler.innerMargin
                 
                 var contentButton: UIButton?
                 
