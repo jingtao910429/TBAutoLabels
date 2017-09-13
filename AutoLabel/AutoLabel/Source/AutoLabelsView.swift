@@ -63,17 +63,21 @@ private struct Handler {
     static var backGroundColor = UIColor.white
     //border颜色
     static var borderColor = UIColor(hexString: "#C7C7C7")?.cgColor
+    //cornerRadius
+    static var cornerRadius = CGFloat(0)
     
     static func setInterface(_ interfaceSet: (
         font: UIFont,
         textColor: UIColor,
         backGroundColor: UIColor,
+        cornerRadius: CGFloat,
         borderColor: UIColor)) {
         
         Handler.font = interfaceSet.font
         Handler.textColor = interfaceSet.textColor
         Handler.backGroundColor = interfaceSet.backGroundColor
         Handler.borderColor = interfaceSet.borderColor.cgColor
+        Handler.cornerRadius = interfaceSet.cornerRadius
         
     }
     
@@ -95,7 +99,7 @@ class AutoLabelsView: UIView {
     //自定义视图
     public func reloadData(_ sources: [String],
                            baseSet: (spaceX: CGFloat, spaceY: CGFloat, margin: CGFloat, width: CGFloat, height: CGFloat, innerMargin: CGFloat, type: HandlerType),
-                           interfaceSet: (font: UIFont, textColor: UIColor, backGroundColor: UIColor, borderColor: UIColor)) {
+                           interfaceSet: (font: UIFont, textColor: UIColor, backGroundColor: UIColor, cornerRadius: CGFloat, borderColor: UIColor)) {
         Handler.setBase(baseSet)
         Handler.setInterface(interfaceSet)
         reloadData(sources)
@@ -195,7 +199,7 @@ extension AutoLabelsView {
                     contentButton = UIButton(frame: CGRect(x: insertX, y: startY, width: contentWidth, height: Handler.height))
                     self.addSubview(contentButton!)
                 }
-                
+                contentButton?.layer.cornerRadius = Handler.cornerRadius
                 contentButton?.tag = i + 1
                 contentButton?.setTitle(content, for: .normal)
                 contentButton?.titleLabel?.font = Handler.font
